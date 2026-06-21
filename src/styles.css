@@ -1,0 +1,149 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@source "../src";
+
+@custom-variant dark (&:is(.dark *));
+/*
+ * Sanctuary — pressed-paper minimal.
+ * Palette: paper, ink, sage, dusk, cream, lavender, dustblue.
+ * Typography: Cormorant Garamond (serif headings) + Inter (body).
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --font-serif: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-sage: var(--sage);
+  --color-dusk: var(--dusk);
+  --color-cream: var(--cream);
+  --color-lavender: var(--lavender);
+  --color-dustblue: var(--dustblue);
+
+  --color-mood-tender: #d6a4a4;
+  --color-mood-restless: #c08a5a;
+  --color-mood-quiet: #a8b0a4;
+  --color-mood-luminous: #d9c47a;
+  --color-mood-heavy: #6c6970;
+  --color-mood-hopeful: #a3b89c;
+  --color-mood-unsettled: #b48a9a;
+  --color-mood-still: #b9bfc4;
+  --color-mood-wistful: #958da5;
+  --color-mood-warm: #c79a6c;
+
+  --animate-ink-fade: ink-fade 600ms ease-out both;
+  --animate-page-turn: page-turn 500ms ease-out both;
+}
+
+:root {
+  --radius: 0.5rem;
+  --paper: #f7f4ee;
+  --ink: #2a2826;
+  --sage: #5f6d65;
+  --dusk: #958da5;
+  --cream: #faf8f3;
+  --lavender: #cfc6d8;
+  --dustblue: #a8b6c2;
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--cream);
+  --card-foreground: var(--ink);
+  --popover: var(--cream);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--paper);
+  --secondary: #ede7dd;
+  --secondary-foreground: var(--ink);
+  --muted: #ece6db;
+  --muted-foreground: #6b665e;
+  --accent: var(--sage);
+  --accent-foreground: var(--paper);
+  --destructive: #8a4a4a;
+  --destructive-foreground: var(--paper);
+  --border: #e2dccf;
+  --input: #e2dccf;
+  --ring: var(--sage);
+}
+
+.dark {
+  --paper: #1d1c1a;
+  --ink: #ede8df;
+  --background: #1d1c1a;
+  --foreground: #ede8df;
+  --card: #25241f;
+  --card-foreground: #ede8df;
+  --popover: #25241f;
+  --popover-foreground: #ede8df;
+  --primary: #ede8df;
+  --primary-foreground: #1d1c1a;
+  --secondary: #2c2a25;
+  --secondary-foreground: #ede8df;
+  --muted: #2c2a25;
+  --muted-foreground: #a39d92;
+  --accent: #5f6d65;
+  --accent-foreground: #ede8df;
+  --destructive: #b06a6a;
+  --destructive-foreground: #1d1c1a;
+  --border: #3a3731;
+  --input: #3a3731;
+  --ring: #5f6d65;
+}
+
+@keyframes ink-fade {
+  from { opacity: 0; transform: translateY(6px); filter: blur(2px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes page-turn {
+  from { opacity: 0; transform: rotateY(8deg) translateX(8px); }
+  to { opacity: 1; transform: rotateY(0) translateX(0); }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+}
